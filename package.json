@@ -1,8 +1,10 @@
 {
   "devDependencies": {
+    "babel-register": "^6.26.0",
     "canvas": "^1.6.11",
     "echarts": "^4.1.0",
     "fs": "^0.0.1-security",
+    "koa": "^2.5.2",
     "node-gyp": "^3.8.0",
     "path": "^0.12.7"
   }

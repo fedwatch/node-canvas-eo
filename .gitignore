@@ -1,0 +1,7 @@
+.DS_Store
+.editorconfig
+.idea
+.bat
+/node_modules/
+project.config.json
+package.json

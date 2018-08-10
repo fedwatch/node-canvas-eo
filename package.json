@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "canvas": "^1.6.11",
+    "echarts": "^4.1.0",
+    "fs": "^0.0.1-security",
+    "node-gyp": "^3.8.0",
+    "path": "^0.12.7"
+  }
+}

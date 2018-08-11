@@ -77,73 +77,91 @@
 // })
 
 var Canvas = require('canvas'),
+    echarts = require('echart'),
     fs = require('fs'),
     path = require('path'),
     canvas = new Canvas(200,200)
     , ctx = canvas.getContext('2d');
-ctx.font = '30px PingFangSC';
-ctx.rotate(.1);
-ctx.fillStyle = 'rgba(7,88,0,0.5)';
-ctx.fillText("中文字体", 50, 100);
+var font = new Canvas.Font('华文仿宋', path.join(__dirname, '华文仿宋.ttf'));
+ctx.addFont(font);
+var putlists = [
+    '数量',
+    '大师',
+    '宿便',
+    '情绪',
+    '亲故',
+    '如此',
+    '入职',
+    '群殴',
+    '证券',
+]
+for(let i  in putlists ){
+
+    ctx.font = '12px 华文仿宋';
+// ctx.rotate(.1);
+    ctx.fillStyle = 'rgba(7,88,0,0.5)';
+    ctx.fillText(putlists[i], 50, 100);
+
 // var te = ctx.measureText('Awesome!');
 
 // ctx.beginPath();
 // ctx.lineTo(50, 102);
 // ctx.lineTo(50 + te.width, 102);
 // ctx.stroke();
-console.log('<img src="' + canvas.toDataURL() + '" />');
-
-
-genChineseFont("./dist",150,200)
-
-
-/**
- * 生成中文字体
- * @param options
- * @param savePath
- * @param size
- * @returns {Promise<any>}
- */
-function genChineseFont(options, savePath, size){
-    return new Promise((resolve, reject)=>{
-        try{
-            const canvas = new Canvas(parseInt(size.width,10), parseInt(size.height,10));
-            const font = new Canvas.Font('华文仿宋', path.join(__dirname, '华文仿宋.ttf'));
-            const ctx = canvas.getContext('2d');
-            ctx.addFont(font);
-            ctx.font = '12px 华文仿宋';
-
-            // echarts.setCanvasCreator(function () {
-            //     return canvas;
-            // });
-            // const chart = echarts.init(canvas);
-            options.animation = false;
-            options.textStyle = {
-                fontFamily: '华文仿宋',
-                fontSize: 12,
-            };
-            // chart.setOption(options);
-            try {
-                fs.writeFileSync(savePath, chart.getDom().toBuffer());
-                console.log("Create Img:" + savePath);
-            } catch (err){
-                console.error("Error: Write File failed" + err.message);
-            }
-            resolve();
-        }catch (e) {
-            console.log(e)
-
-        }
-
-
-        // '/Library/Fonts/微软雅黑.ttf'
-        // Canvas.registerFont('comicsans.ttf', {family: 'Comic Sans'});
-    })
-
+    console.log('<img src="' + canvas.toDataURL() + '" />');
 }
 
-
-module.exports = {
-    genChineseFont:genChineseFont
-}
+//
+// genChineseFont("./dist",150,200)
+//
+//
+// /**
+//  * 生成中文字体
+//  * @param options
+//  * @param savePath
+//  * @param size
+//  * @returns {Promise<any>}
+//  */
+// function genChineseFont(options, savePath, size){
+//     return new Promise((resolve, reject)=>{
+//         try{
+//             const canvas = new Canvas(parseInt(size.width,10), parseInt(size.height,10));
+//             const font = new Canvas.Font('华文仿宋', path.join(__dirname, '华文仿宋.ttf'));
+//             const ctx = canvas.getContext('2d');
+//             ctx.addFont(font);
+//             ctx.font = '12px 华文仿宋';
+//
+//             echarts.setCanvasCreator(function () {
+//                 return canvas;
+//             });
+//             const chart = echarts.init(canvas);
+//             options.animation = false;
+//             options.textStyle = {
+//                 fontFamily: '华文仿宋',
+//                 fontSize: 12,
+//             };
+//             chart.setOption(options);
+//             try {
+//                 fs.writeFileSync(savePath, chart.getDom().toBuffer());
+//                 console.log("Create Img:" + savePath);
+//             } catch (err){
+//                 console.error("Error: Write File failed" + err.message);
+//             }
+//             resolve();
+//         }catch (e) {
+//             console.log(e)
+//
+//         }
+//
+//
+//         // '/Library/Fonts/微软雅黑.ttf'
+//         // Canvas.registerFont('comicsans.ttf', {family: 'Comic Sans'});
+//     })
+//
+// }
+//
+//
+// module.exports = {
+//     genChineseFont:genChineseFont
+// }
 

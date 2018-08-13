@@ -131,7 +131,7 @@
 //
 
 
-const { createCanvas, loadImage } = require('canvas')
+const { createCanvas, loadImage } = require('application/canvas')
 const canvas = createCanvas(200, 200)
 const ctx = canvas.getContext('2d')
 

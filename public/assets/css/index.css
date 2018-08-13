@@ -1,0 +1,49 @@
+@charset "UTF-8";
+*{
+    margin:0;
+    padding: 0 ;
+    border:0;
+}
+ul,li{
+    list-style: none;
+}
+.symbol-list{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+.symbol-item{
+    width:100px;
+    height:100px;
+}
+
+.symbol-item.item-1 {
+
+}
+
+.symbol-item.item-2 {
+}
+
+.symbol-item.item-3 {
+}
+
+.symbol-item.item-4 {
+}
+
+.symbol-item.item-5 {
+}
+
+.symbol-item.item-6 {
+}
+
+.symbol-item.item-7 {
+}
+
+.symbol-item.item-8 {
+}
+
+.symbol-item.item-9 {
+}
+
+.symbol-item.item-10 {
+}
